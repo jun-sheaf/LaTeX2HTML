@@ -1,0 +1,133 @@
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+   	tex2jax: {inlineMath: [["\\(","\\)"],["[latex]","[/latex]"]]},
+	jax: ["input/TeX","output/HTML-CSS"],
+	"HTML-CSS": {
+	styles: {".MathJax_Preview": {visibility: "hidden"}}
+	},
+   	TeX: {
+   		Macros: {
+   			rsqc: ["\\sqcup",0],
+   			A: ["\\mathbb{A}",0],
+   			C: ["\\mathbb{C}",0],
+   			D: ["\\mathbb{D}",0],
+   			E: ["\\mathbb{E}",0],
+   			F: ["\\mathbb{F}",0],
+   			G: ["\\mathbb{G}",0],
+   			H: ["\\mathbb{H}",0],
+   			K: ["\\mathbb{K}",0],
+   			N: ["\\mathbb{N}",0],
+   			O: ["\\mathbb{O}",0],
+   			Q: ["\\mathbb{Q}",0],
+   			R: ["\\mathbb{R}",0],
+   			S: ["\\mathbb{S}",0],
+   			T: ["\\mathbb{T}",0],
+   			Z: ["\\mathbb{Z}",0],
+   			on: ["\\operatorname{#1}",1],
+   			gr: ["\\on{Gr}_{#1}({#2})",2],
+   			phi: ["\\varphi",0],
+   			sgn: ["\\on{sgn}",0],
+   			aut: ["\\on{Aut}",0],
+   			Obj: ["\\on{Obj}",0],
+   			image: ["\\on{im}",0],
+   			coker: ["\\on{coker}",0],
+   			spec: ["\\on{Spec}",0],
+   			span: ["\\on{span}",0],
+   			supp: ["\\on{supp}",0],
+   			transdeg: ["\\on{tr.deg}",0],
+   			Char: ["\\on{char}",0],
+   			colim: ["\\on{colim}",0],
+   			card: ["\\on{card}\\left(#1\\right)",1]
+   		},
+   		equationNumbers: { autoNumber: "AMS" },
+   		extensions: ["js/TeX/diagrams.js"]
+   	},
+   });
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/footnotes.js"></script>
+<script type="text/javascript">
+   $.bigfoot({
+    activateCallback: function($popover, $button) {
+        if (MathJax && !$button.data('mathjax-processed')) {
+            var content_wrapper = $popover.find('.bigfoot-footnote__content')[0];
+            MathJax.Hub.Queue(['Typeset', MathJax.Hub, content_wrapper]);
+            MathJax.Hub.Queue(function () {
+                $button.attr('data-bigfoot-footnote', content_wrapper.innerHTML);
+                $button.data('mathjax-processed', true);
+            });
+        }
+    }
+   });
+</script>
+<link rel="stylesheet" href="css/footnotes.css">
+<link rel="stylesheet" href="css/environments.css">
+<body>
+<p class="preliminary"><span class="thm-label">Preliminary.</span>
+    Some custom environment
+</p>
+<p class="exercise"><span class="thm-label">Exercise.</span>
+    <ol class="ecomponents">
+        <li> This is
+        <li> A custom
+        <ol class="ecomponents">
+            <li> enumerate
+            <li> environment
+            <ol class="enumerate">
+                <li> with a
+                <li class="labeled">label.
+            </ol>
+        </ol>
+    </ol>
+    This exercise environment is also custom.
+</p>
+Of course math works:
+\begin{equation}\label{eq:1}
+    \cdots\to \pi_{n}(\S^{n+k})\to \pi_n(\S^n)\to \pi_{n-1}(\S^k)\to\pi_{n-1}(\S^{n+k})\to\cdots
+\end{equation}
+The standard centered
+\[
+    \cdots\to \pi_1(\S^n)\to \pi_{0}(\S^0)\to\pi_{0}(\S^{n})\to\pi_{0}(\S^{n})\to 0
+\]
+and inline \(n=4\) math delimiters work. Including \(test\) and
+\[\pi_1(S)\]
+
+Here is a typical theorem environment with a label:
+<p class="proposition"><span class="thm-label">Proposition 1 </span><span class="thm-sublabel">(Hopf Construction)</span>.
+Suppose \(\mu:X\times X\to X\) is a map such that \(\mu(x,\bullet):X\to X\) and \(\mu(\bullet,x):X\to X\) are homeomorphisms for each \(x\in X\). Then the map
+\[
+    h_{\mu}:X*X\to \Sigma X\mbox{ defined by }(x,y,t)\mapsto (\mu(x,y),t)
+\]
+is a fiber bundle with fiber \(X\).
+</p>
+<p class="proof"><span class="thm-label">Proof.</span>
+    See \cite[Proposition VII.8.8]{Bredon1993}; we make some remarks. The open cones \(C_0\) and \(C_1\) defined are the preimages of \((0,1]\) and \([0,1)\) of the map \(\Sigma X\to I\) given by projecting the smashing parameter. The map \(L_x^{-1}(y)\) can be denoted more simply as \(x^{-1}y\) and similarly \(yx^{-1}\) for \(R_x^{-1}(y)\). The trivialization shown is for \(C_1\). \(C_2\) admits a similar trivialization with \(yx^{-1}\).
+</p>
+
+Here is one without a label:<a href="#fn:1" id="fnref:1"><sup>1</sup></a>
+<p class="proposition"><span class="thm-label">Proposition 2.</span>
+Suppose \(\mu:X\times X\to X\) is a map such that \(\mu(x,\bullet):X\to X\) and \(\mu(\bullet,x):X\to X\) are homeomorphisms for each \(x\in X\). Then the map
+\[
+    h_{\mu}:X*X\to \Sigma X\mbox{ defined by }(x,y,t)\mapsto (\mu(x,y),t)
+\]
+is a fiber bundle with fiber \(X\).
+</p>
+<p class="proof"><span class="thm-label">Proof.</span>
+    See \cite[Proposition VII.8.8]{Bredon1993}; we make some remarks. The open cones \(C_0\) and \(C_1\) defined are the preimages of \((0,1]\) and \([0,1)\) of the map \(\Sigma X\to I\) given by projecting the smashing parameter. The map \(L_x^{-1}(y)\) can be denoted more simply as \(x^{-1}y\) and similarly \(yx^{-1}\) for \(R_x^{-1}(y)\). The trivialization shown is for \(C_1\). \(C_2\) admits a similar trivialization with \(yx^{-1}\).
+</p>
+
+Got a figure? Well no problem! This handles figures (rigidly of course) [you can't change your figure position in your original TeX file without modifying the HTML output, but I will add this]
+<div class="figure id="fig1" style="text-align: center">
+    \centering
+    [embed]<body>[/embed]Figure 1.
+    <span class="fig-caption">If \(X=I\), then we have a box \(I\times I\times I\) with \(A\) being some interval. The flayling nature of \(A\) represents the fact the homotopy does not necessarily fix \(A\). Going from top to bottom is the homotopy of a homotopy with \(\tilde h(x,t)\) along the frame.</span><a id="fig:2"></a>
+</div></div>
+
+References (e.g. Figure <a href="#fig:2">2</a>) of course work.
+
+<ol class="footnotes">
+<li id="fn:1">this is a test footnote</li>
+</ol>
+</body>

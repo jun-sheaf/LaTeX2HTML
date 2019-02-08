@@ -1,0 +1,66 @@
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+   	tex2jax: {inlineMath: [["\\(","\\)"],["[latex]","[/latex]"]]},
+	jax: ["input/TeX","output/HTML-CSS"],
+	"HTML-CSS": {
+	styles: {".MathJax_Preview": {visibility: "hidden"}}
+	},
+   	TeX: {
+   		Macros: {
+   			rsqc: ["\\sqcup",0],
+   			A: ["\\mathbb{A}",0],
+   			C: ["\\mathbb{C}",0],
+   			D: ["\\mathbb{D}",0],
+   			E: ["\\mathbb{E}",0],
+   			F: ["\\mathbb{F}",0],
+   			G: ["\\mathbb{G}",0],
+   			H: ["\\mathbb{H}",0],
+   			K: ["\\mathbb{K}",0],
+   			N: ["\\mathbb{N}",0],
+   			O: ["\\mathbb{O}",0],
+   			Q: ["\\mathbb{Q}",0],
+   			R: ["\\mathbb{R}",0],
+   			S: ["\\mathbb{S}",0],
+   			T: ["\\mathbb{T}",0],
+   			Z: ["\\mathbb{Z}",0],
+   			on: ["\\operatorname{#1}",1],
+   			gr: ["\\on{Gr}_{#1}({#2})",2],
+   			phi: ["\\varphi",0],
+   			sgn: ["\\on{sgn}",0],
+   			aut: ["\\on{Aut}",0],
+   			Obj: ["\\on{Obj}",0],
+   			image: ["\\on{im}",0],
+   			coker: ["\\on{coker}",0],
+   			spec: ["\\on{Spec}",0],
+   			span: ["\\on{span}",0],
+   			supp: ["\\on{supp}",0],
+   			transdeg: ["\\on{tr.deg}",0],
+   			Char: ["\\on{char}",0],
+   			colim: ["\\on{colim}",0],
+   			card: ["\\on{card}\\left(#1\\right)",1]
+   		},
+   		equationNumbers: { autoNumber: "AMS" },
+   		extensions: ["js/TeX/diagrams.js"]
+   	},
+   });
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/footnotes.js"></script>
+<script type="text/javascript">
+   $.bigfoot({
+    activateCallback: function($popover, $button) {
+        if (MathJax && !$button.data('mathjax-processed')) {
+            var content_wrapper = $popover.find('.bigfoot-footnote__content')[0];
+            MathJax.Hub.Queue(['Typeset', MathJax.Hub, content_wrapper]);
+            MathJax.Hub.Queue(function () {
+                $button.attr('data-bigfoot-footnote', content_wrapper.innerHTML);
+                $button.data('mathjax-processed', true);
+            });
+        }
+    }
+   });
+</script>
+<link rel="stylesheet" href="css/footnotes.css">
+<link rel="stylesheet" href="css/environments.css">

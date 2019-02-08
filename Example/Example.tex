@@ -1,0 +1,67 @@
+\documentclass{amsart}
+
+% Preamble would usually go here
+
+\begin{document}
+\begin{preliminary}
+    Some custom environment
+\end{preliminary}
+\begin{exercise}
+    \begin{ecomponents}
+        \item This is
+        \item A custom
+        \begin{ecomponents}
+            \item enumerate
+            \item environment
+            \begin{enumerate}
+                \item with a
+                \item[label]
+            \end{enumerate}
+        \end{ecomponents}
+    \end{ecomponents}
+    This exercise environment is also custom.
+\end{exercise}
+Of course math works:
+\begin{equation}\label{eq:1}
+    \cdots\to \pi_{n}(\S^{n+k})\to \pi_n(\S^n)\to \pi_{n-1}(\S^k)\to\pi_{n-1}(\S^{n+k})\to\cdots
+\end{equation}
+The standard centered
+$$
+    \cdots\to \pi_1(\S^n)\to \pi_{0}(\S^0)\to\pi_{0}(\S^{n})\to\pi_{0}(\S^{n})\to 0
+$$
+and inline $n=4$ math delimiters work. Including \(test\) and
+\[\pi_1(S)\]
+
+Here is a typical theorem environment with a label:
+\begin{proposition}[Hopf Construction]
+Suppose $\mu:X\times X\to X$ is a map such that $\mu(x,\bullet):X\to X$ and $\mu(\bullet,x):X\to X$ are homeomorphisms for each $x\in X$. Then the map
+$$
+    h_{\mu}:X*X\to \Sigma X\mbox{ defined by }(x,y,t)\mapsto (\mu(x,y),t)
+$$
+is a fiber bundle with fiber $X$.
+\end{proposition}
+\begin{proof}
+    See \cite[Proposition VII.8.8]{Bredon1993}; we make some remarks. The open cones $C_0$ and $C_1$ defined are the preimages of $(0,1]$ and $[0,1)$ of the map $\Sigma X\to I$ given by projecting the smashing parameter. The map $L_x^{-1}(y)$ can be denoted more simply as $x^{-1}y$ and similarly $yx^{-1}$ for $R_x^{-1}(y)$. The trivialization shown is for $C_1$. $C_2$ admits a similar trivialization with $yx^{-1}$.
+\end{proof}
+
+Here is one without a label:\footnote{this is a test footnote}
+\begin{proposition}
+Suppose $\mu:X\times X\to X$ is a map such that $\mu(x,\bullet):X\to X$ and $\mu(\bullet,x):X\to X$ are homeomorphisms for each $x\in X$. Then the map
+$$
+    h_{\mu}:X*X\to \Sigma X\mbox{ defined by }(x,y,t)\mapsto (\mu(x,y),t)
+$$
+is a fiber bundle with fiber $X$.
+\end{proposition}
+\begin{proof}
+    See \cite[Proposition VII.8.8]{Bredon1993}; we make some remarks. The open cones $C_0$ and $C_1$ defined are the preimages of $(0,1]$ and $[0,1)$ of the map $\Sigma X\to I$ given by projecting the smashing parameter. The map $L_x^{-1}(y)$ can be denoted more simply as $x^{-1}y$ and similarly $yx^{-1}$ for $R_x^{-1}(y)$. The trivialization shown is for $C_1$. $C_2$ admits a similar trivialization with $yx^{-1}$.
+\end{proof}
+
+Got a figure? Well no problem! This handles figures (rigidly of course) [you can't change your figure position in your original TeX file without modifying the HTML output, but I will add this]
+\begin{figure}
+    \centering
+    \includegraphics[width=4in]{HomotopyOfHomotopy.jpg}
+    \caption{If $X=I$, then we have a box $I\times I\times I$ with $A$ being some interval. The flayling nature of $A$ represents the fact the homotopy does not necessarily fix $A$. Going from top to bottom is the homotopy of a homotopy with $\tilde h(x,t)$ along the frame.}\label{fig:2}
+\end{figure}
+
+References (e.g. Figure \ref{fig:2}) of course work.
+\end{document} 
