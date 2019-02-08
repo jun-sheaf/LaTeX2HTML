@@ -61,7 +61,7 @@ All macros and environments (except the ones used by MathJax) used in your docum
 
 You can contact me through my site [The Bracket](https://www.jeongjh.com/about-contact/). I am a starving student, so tips are incredibly welcomed: 
 
-Paypal: [PayPal.me/jeongjh](paypal.me/jeongjh)
+Paypal: [PayPal.me/jeongjh](https://www.paypal.me/jeongjh)
 
 Crypto:
 ```
