@@ -17,7 +17,7 @@ The following javascripts are recommended:
 
 The footnotes script is not required, but removes the need for a footer filled with footnotes. XyJax is not required if you do not draw diagrams; there is also [AMScd](http://docs.mathjax.org/en/latest/tex.html#amscd) which is faster but limited to simple straight arrow diagrams. I recommend placing these scripts in a single folder (e.g. `/js/`) for tidiness.
 
-MathJax gives you the ability to write macros directly into its engine. [link](http://docs.mathjax.org/en/latest/tex.html#defining-tex-macros) A sample is given in the example script below.
+MathJax gives you the ability to [write macros](http://docs.mathjax.org/en/latest/tex.html#defining-tex-macros) directly into its engine.
 
 BigFootJS also requires a css script for the buttons.
 
