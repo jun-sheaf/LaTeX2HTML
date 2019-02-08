@@ -2,13 +2,13 @@
 A RegEX Python Script for Translating LaTeX to HTML for Wordpress
 
 ## Introduction
-This is NOT a compiler for LaTeX to HTML such as [TeX4HT](https://tug.org/tex4ht/). This was originally for translating assignments to HTML for my Wordpress-powered site (https://www.jeongjh.com) without having the need to modify my document. It is powerful to some extent, but only goes as far as how clever you use it.
+This is NOT a compiler for LaTeX to HTML such as [TeX4HT](https://tug.org/tex4ht/). This was originally used for translating assignments to HTML for my Wordpress-powered site (https://www.jeongjh.com) without having the need to modify the original TeX. It is powerful to some extent, but as far as how clever you use it.
 
 ### Preparing Python
 The script requires the ```tkinter``` package to use the GUI.
 
 ### Preparing Your Site
-Wordpress is technically not required, but it allows the use of the `[embed]` tag which I use for figures in this script. 
+Wordpress is technically not required (as shown in the example), but it allows the use of the `[embed]` tag which I use for figures in this script. 
 
 The following javascripts are recommended:
 * [MathJax](https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML) (for mathing)
@@ -21,53 +21,17 @@ MathJax gives you the ability to write macros directly into its engine. [link](h
 
 BigFootJS also requires a css script for the buttons.
 
-The following example code can be used in your header to install MathJax and the scripts on your site: (replace `PLACEHOLDER` with your scripts location)
-
-```HTML
-<script type="text/x-mathjax-config">
-   MathJax.Hub.Config({
-	extensions: ["tex2jax.js"],
-   	tex2jax: {inlineMath: [["\\(","\\)"],["[latex]","[/latex]"]]},
-	jax: ["input/TeX","output/HTML-CSS"],
-	"HTML-CSS": {
-	styles: {".MathJax_Preview": {visibility: "hidden"}}
-	},
-   	TeX: {
-   		Macros: {
-   			Z: ["\\mathbb{Z}",0],
-   		},
-   		equationNumbers: { autoNumber: "AMS" },
-   		extensions: ["PLACEHOLDER/XyJax.js"]
-   	},
-   });
-</script>
-<script type="text/javascript" async src="PLACEHOLDER/MathJax"></script>
-<script type="text/javascript" src="PLACEHOLDER/BigFootJS.js"></script>
-<script type="text/javascript">
-   $.bigfoot({
-    activateCallback: function($popover, $button) {
-        if (MathJax && !$button.data('mathjax-processed')) {
-            var content_wrapper = $popover.find('.bigfoot-footnote__content')[0];
-            MathJax.Hub.Queue(['Typeset', MathJax.Hub, content_wrapper]);
-            MathJax.Hub.Queue(function () {
-                $button.attr('data-bigfoot-footnote', content_wrapper.innerHTML);
-                $button.data('mathjax-processed', true);
-            });
-        }
-    }
-   });
-</script>
-<link rel="stylesheet" href="PLACEHOLDER/BigFootJS.css">
-```
+The header in the example is similar to the one I use. The scripts and css are renamed for simplicity.
 
 ### Preparing Your LaTeX Code
+In general, keep `\begin` on a separate line.
 
 For footnotes:
 * Place footnotes (`\footnote{sometext}`) where you would like the footnote marker to appear.
 * Do **not** place your footnote in math delimiters. Use a footnote marker (`\footnotemarker`) and place your footnote text    (`\footnotetext{texthere}`).
 
 For environments:
-* All theorem-type environments (except the ones parsed by MathJax) must be of the form
+* All non-enumerate-type environments (except the ones parsed by MathJax such as `equation`) must be of the form
 ```latex
 \begin{placeholder}[optional]
 blah blah blah
@@ -81,6 +45,27 @@ blah blah blah
 ```
 * If you use ```enumitems```, set these values before the enumerate environment and place the code into the 'Delete Macros' section of the configuration file.
 
-## Usage
+## Configuring the script
 
-Will write soon...
+The `config.ini` file will need some configuration before running the script. The descriptions for all the values are listed in the file.
+
+## Running the script
+
+The ``Run Script.pyw`` file will launch a GUI for the script. **If you have images**, you should upload these online and paste the url in the text box (one per line) in the order they appear in your TeX document. After you choose your file, press ``Run`` and the freshly-pressed code should appear in the text box (replacing any URLs you may have placed there). You can save this using the ``Save`` button or copy-and-paste as you wish. You can process multiple files without closing the window.
+
+## Remarks
+
+All macros and environments (except the ones used by MathJax) used in your document should be defined in the configuration file. Using classes and ids give this script an incredible amount of flexibility (e.g. the proposition environment in the example is defined the same way as the exercise environment, but differs in `css`). Enumerate especially handles well since nesting is built-in to `css` (the script does not process nesting of enumerate environments). There are numerous ways to simply delete macros in your TeX file during translation, so I won't implement this any time soon.
+
+# Contact
+
+You can contact me through my site [The Bracket](https://www.jeongjh.com/about-contact/). I am a starving student, so tips are incredibly welcomed: 
+
+Paypal: [PayPal.me/jeongjh](paypal.me/jeongjh)
+
+Crypto:
+```
+BTC: 19AKGxHW19Jx5PtPA55mT4jgByV6ZFmLdL
+ETH: 0x5b4e8dde8d7aa983e5fb4f3a58a4cabadb66a6af
+LTC: LXcyKsHqLiYbEcgjKCTKUTwh52WfWgfqoX
+```
