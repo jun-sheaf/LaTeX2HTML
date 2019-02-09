@@ -1,31 +1,39 @@
-# TeX2Wordpress
-A RegEX Python Script for Translating LaTeX to HTML for Wordpress
+# LaTeX2HTML
+A Customizable Python Program for Translating LaTeX to HTML
 
 ## Introduction
-This is NOT a compiler for LaTeX to HTML such as [TeX4HT](https://tug.org/tex4ht/). This was originally used for translating assignments to HTML for my Wordpress-powered site (https://www.jeongjh.com) without having the need to modify the original TeX. It is powerful to some extent, but as far as how clever you use it.
+This program **can**:
+* Translates any environment (even enumerate-types) into a fully-customizable HTML container
+* Places footnotes at the end of the document (before `\end{document}`) and hyperlinks them.
+* Places a bibliography at the end of the document (before the footnotes) with the citations used as well as hyperlinks them.
+* Translates macros into fully-customizable HTML containers/tags
+
+This program *cannot*:
+* Convert `tikzpicture` (and its children such as `tikzcd`) to `SVG` (however, [XyJax](http://sonoisa.github.io/xyjax/xyjax.html) can be used to fully encode diagrams in MathJax)
+* Compile (as opposed to [translate](https://en.oxforddictionaries.com/definition/translation)) LaTeX to HTML such as [TeX4HT](https://tug.org/tex4ht/) 
 
 ### Preparing Python
-The script requires the ```tkinter``` package to use the GUI.
+The following modules are **required**:
+* `tkinter`
+
+The following modules are *optional*: 
+* `bibtexparser` (for bibliographies)
 
 ### Preparing Your Site
-Wordpress is technically not required (as shown in the example), but it allows the use of the `[embed]` tag which I use for figures in this script. 
+The following javascripts are **required**:
+* [MathJax](https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML)
 
 The following javascripts are recommended:
-* [MathJax](https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML) (for mathing)
 * [XyJax](http://sonoisa.github.io/xyjax/xyjax.html) (for diagrams)
+  * Although `tikzcd` is not available on MathJax, `xypics` is available through XyJax.
+  * [AMScd](http://docs.mathjax.org/en/latest/tex.html#amscd) can also be used (and is faster), but is limited to simple straight arrow diagrams.
 * [BigFootJS](http://www.bigfootjs.com/) (for footnotes)
-
-The footnotes script is not required, but removes the need for a footer filled with footnotes. XyJax is not required if you do not draw diagrams; there is also [AMScd](http://docs.mathjax.org/en/latest/tex.html#amscd) which is faster but limited to simple straight arrow diagrams. I recommend placing these scripts in a single folder (e.g. `/js/`) for tidiness.
-
-MathJax gives you the ability to [write macros](http://docs.mathjax.org/en/latest/tex.html#defining-tex-macros) directly into its engine.
-
-BigFootJS also requires a css script for the buttons.
+  * Depends on [jquery](https://code.jquery.com/jquery-3.3.1.min.js)
+  * BigFootJS removes the need for a footer filled with footnotes and places them in an overlay activated by the footnote's link.
 
 The header in the example is similar to the one I use. The scripts and css are renamed for simplicity.
 
 ### Preparing Your LaTeX Code
-In general, keep `\begin` on a separate line.
-
 For footnotes:
 * Place footnotes (`\footnote{sometext}`) where you would like the footnote marker to appear.
 * Do **not** place your footnote in math delimiters. Use a footnote marker (`\footnotemarker`) and place your footnote text    (`\footnotetext{texthere}`).
@@ -37,21 +45,12 @@ For environments:
 blah blah blah
 \end{placeholder}
 ```
-* All enumerate environments (nesting allowed) must be of the form
-```latex
-\begin{placeholder}
-\item blah blah blah
-\end{placeholder}
-```
-* If you use ```enumitems```, set these values before the enumerate environment and place the code into the 'Delete Macros' section of the configuration file.
 
-## Configuring the script
-
-The `config.ini` file will need some configuration before running the script. The descriptions for all the values are listed in the file.
+## Customizing the program
+The strength of this program lies in the customizability. The `config.ini` contains all the information about customizability options.
 
 ## Running the script
-
-The ``Run Script.pyw`` file will launch a GUI for the script. **If you have images**, you should upload these online and paste the url in the text box (one per line) in the order they appear in your TeX document. After you choose your file, press ``Run`` and the freshly-pressed code should appear in the text box (replacing any URLs you may have placed there). You can save this using the ``Save`` button or copy-and-paste as you wish. You can process multiple files without closing the window.
+The ``RunScript.pyw`` file will launch a GUI for the script. **If you have images**, you should upload these online and paste the url in the text box (one per line) in the order they appear in your TeX document. **If you have a bibliography**, assure you have the requirements listed before and select the `.bib` file associated to it. After you choose your file, press `Run` and the freshly-pressed code should appear in the text box (replacing any URLs you may have placed there). You can edit, copy-and-paste, and save (using the ``Save`` button) however you wish. You can process multiple files without closing the window.
 
 ## Remarks
 
