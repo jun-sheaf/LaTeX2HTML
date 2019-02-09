@@ -3,15 +3,15 @@ A Customizable Python Program for Translating LaTeX to HTML
 
 ## Introduction
 This program **can**:
-* Translates any environment (even enumerate-types) into a fully-customizable HTML container
+* Translates any environment (even enumerate-types) into a fully-customizable HTML container.
 * Places footnotes at the end of the document (before `\end{document}`) and hyperlinks them.
 * Link references.
 * Places a bibliography at the end of the document (before the footnotes) with the citations used as well as hyperlinks them.
-* Translates macros into fully-customizable HTML containers/tags
+* Translates macros into fully-customizable HTML containers/tags.
 
 This program *cannot*:
-* Convert `tikzpicture` (and its children such as `tikzcd`) to `SVG` (however, [XyJax](http://sonoisa.github.io/xyjax/xyjax.html) can be used to fully encode diagrams in MathJax)
-* Compile (as opposed to [translate](https://en.oxforddictionaries.com/definition/translation)) LaTeX to HTML such as [TeX4HT](https://tug.org/tex4ht/) 
+* Convert `tikzpicture` (and its children such as `tikzcd`) to `SVG` (however, [XyJax](http://sonoisa.github.io/xyjax/xyjax.html) can be used to fully encode diagrams in MathJax).
+* Compile (as opposed to [translate](https://en.oxforddictionaries.com/definition/translation)) LaTeX to HTML such as [TeX4HT](https://tug.org/tex4ht/).
 
 ### Preparing Python
 The following modules are **required**:
@@ -29,7 +29,7 @@ The following javascripts are recommended:
   * Although `tikzcd` is not available on MathJax, `xypics` is available through XyJax.
   * [AMScd](http://docs.mathjax.org/en/latest/tex.html#amscd) can also be used (and is faster), but is limited to simple straight arrow diagrams.
 * [BigFootJS](http://www.bigfootjs.com/) (for footnotes)
-  * Depends on [jquery](https://code.jquery.com/jquery-3.3.1.min.js)
+  * Depends on [jquery](https://code.jquery.com/jquery-3.3.1.min.js).
   * BigFootJS removes the need for a footer filled with footnotes and places them in an overlay activated by the footnote's link.
 
 The header in the example is similar to the one I use. The scripts and css are renamed for simplicity.
@@ -46,6 +46,9 @@ For environments:
 blah blah blah
 \end{placeholder}
 ```
+
+For references:
+* All references should follow a pattern of `prefix:number` or else they will have to be individually defined in the configuration.
 
 ## Customizing the program
 The strength of this program lies in the customizability. The `config.ini` contains all the information about customizability options.
