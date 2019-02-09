@@ -51,16 +51,16 @@ For references:
 * All references should follow a pattern of `prefix:number` or else they will have to be individually defined in the configuration.
 
 ## Customizing the program
-The strength of this program lies in the customizability. The `config.ini` contains all the information about customizability options.
+The strength of this program lies in the customizability. The `customize.ini` contains all the information about customizability options.
 
 ## Running the program
 The ``RunScript.pyw`` file will launch a GUI for the script. **If you have images**, you should upload these online and paste the url in the text box (one per line) in the order they appear in your TeX document. **If you have a bibliography**, assure you have the requirements listed before and select the `.bib` file associated to it. After you choose your file, press `Run` and the freshly-pressed code should appear in the text box (replacing any URLs you may have placed there). You can edit, copy-and-paste, and save (using the ``Save`` button) however you wish. You can process multiple files without closing the window.
 
 ## Remarks
 
-All macros and environments (except the ones used by MathJax) used in your document should be defined in the configuration file. Using classes and ids give this script an incredible amount of flexibility (e.g. the proposition environment in the example is defined the same way as the exercise environment, but differs in `css`). Enumerate especially handles well since nesting is built-in to `css` (the script does not process nesting of enumerate environments). See the `css` file from the example for some inspiration.
+All macros and environments (except the ones used by MathJax) used in your document should be defined in the configuration file. Using classes and ids give this script an incredible amount of flexibility (e.g. the proposition environment in the example is defined the same way as the exercise environment, but differs in `css`). Enumerate especially handles well since nesting is built-in to `css` (the script does not process nesting of enumerate environments). See the `environments.css` file from the example for some inspiration.
 
-There are a lot of methods for removing unwanted macros in this program. Not so obvious is the facts we can remove parameters in the HTML using some clever adjustments. For example, using the `enumitems` package allows for adjusting enumerate-type environments in the form `\begin{enumerate}[options]`. The `[options]` can be removed by not referencing it in replacement text. See the `config.ini` file for some inspiration.
+There are a lot of methods for removing unwanted macros in this program. Not so obvious is the facts we can remove parameters in the HTML using some clever adjustments. For example, using the `enumitems` package allows for adjusting enumerate-type environments in the form `\begin{enumerate}[options]`. The `[options]` can be removed by not referencing it in replacement text. See the `customize.ini` file for some inspiration.
 
 # Contact
 
