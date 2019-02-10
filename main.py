@@ -81,9 +81,9 @@ if FILES['bib'] != None:
 	tex_file[len(tex_file):] = final_bib
 	tex_file[len(tex_file):] = ['</ol>\n']
 if len(footnotes) != 0:
-	tex_file[len(tex_file):] = ['<hr>\n<ol class="footnotes">\n']
+	tex_file[len(tex_file):] = ['\n<div class="footnotes"><ol>\n<hr>']
 	tex_file[len(tex_file):] = footnotes
-	tex_file[len(tex_file):] = ['</ol>\n']
+	tex_file[len(tex_file):] = ['</ol></div>\n']
 
 tex_file[len(tex_file):] = [last_line]
 
