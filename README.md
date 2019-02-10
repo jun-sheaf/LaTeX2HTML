@@ -16,6 +16,7 @@ This program *cannot*:
 ### Preparing Python
 The following modules are **required**:
 * `tkinter`
+* `regex` (not `re`)
 
 The following modules are *optional*: 
 * `bibtexparser` (for bibliographies)
@@ -48,13 +49,14 @@ blah blah blah
 ```
 
 For references:
-* All references should follow a pattern of `prefix:number` or else they will have to be individually defined in the configuration.
+* All references should follow a pattern of `prefixnumber` or else they will have to be individually defined in the configuration.
+  * It *is* possible to have all references backreference the labels without worry, however they will not be numbered properly since the program does not handle environments and labels jointly (which will not be implemented for obvious reasons). For example, say `\label{banans}` and `\label{pinans}` handle Proposition 4 and Theorem 20. If these are the only labels in the document, then referencing them will just give 1 and 2 rather than 4 and 20.
 
 ## Customizing the program
 The strength of this program lies in the customizability. The `customize.ini` contains all the information about customizability options.
 
 ## Running the program
-The ``RunScript.pyw`` file will launch a GUI for the script. **If you have images**, you should upload these online and paste the url in the text box (one per line) in the order they appear in your TeX document. **If you have a bibliography**, assure you have the requirements listed before and select the `.bib` file associated to it. After you choose your file, press `Run` and the freshly-pressed code should appear in the text box (replacing any URLs you may have placed there). You can edit, copy-and-paste, and save (using the ``Save`` button) however you wish. You can process multiple files without closing the window.
+The ``RunScript.pyw`` file will launch a GUI for the program. **If you have images**, you should upload these online and paste the url in the text box (one per line) in the order they appear in your TeX document. **If you have a bibliography**, assure you have the requirements listed before and select the `.bib` file associated to it. After you choose your file, press `Run` and the freshly-dressed code should appear in the text box (replacing any URLs you may have placed there). You can edit, copy-and-paste, and save (using the ``Save`` button) however you wish. You can process multiple files without closing the window.
 
 ## Remarks
 
