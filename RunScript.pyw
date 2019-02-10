@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import os
 import string
-import re
+import regex
 from tkinter import filedialog
 from tkinter import *
 from tkinter import messagebox
@@ -21,13 +21,13 @@ class Prompt:
 		self.gui_vars = {'':''}
 
 		main = Frame(self.root)
-		main.pack( side = TOP,expand=1,fill='both' )
+		main.pack( side = TOP,fill=X )
 		self.gui_vars['select'] = StringVar()
 		Button(main, text = 'Select File', width = 10, command=self.FileSelection).pack( side = RIGHT, padx=(5, 5), pady=(5, 5) )
 		Entry(main, state = DISABLED, textvariable=self.gui_vars['select'], width = 50, relief = SUNKEN ).pack( side = LEFT, expand=1,fill=X, padx=(5, 5), pady=(5, 5))
 		
 		main = Frame(self.root)
-		main.pack( side = TOP,expand=1,fill='both' )
+		main.pack( side = TOP,fill=X )
 		self.gui_vars['bib'] = StringVar()
 		Button(main, text = 'Select .bib', width = 10, command=self.BibSelection).pack( side = RIGHT, padx=(5, 5), pady=(5, 5) )
 		Entry(main, state = DISABLED, textvariable=self.gui_vars['bib'], width = 50, relief = SUNKEN ).pack( side = LEFT, expand=1,fill=X, padx=(5, 5), pady=(5, 5))

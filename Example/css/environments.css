@@ -1,144 +1,84 @@
-/* Theorem Environments */
-
+.definition,.definition>.thm-sublabel{
+    font-style:normal
+}
+.conjecture>.thm-label,.corollary>.thm-label,.lemma>.thm-label,.theorem>.thm-label,.warning>.thm-label,.proposition>.thm-label{
+    font-weight:700
+}
+.conjecture,.corollary,.definition,.figure,.lemma,.proposition,.remark,.theorem,.warning{
+    padding:10px;
+    margin:10px
+}
 .definition{
-	border: solid 1px;
-	border-radius: 5px;
-	padding: 1%;
-	font-style: normal;
+    border:1px solid;
+    border-radius:5px
 }
-
-.definition > .thm-label {
-	font-weight:bold;
-	font-style: normal;
+,.definition>.thm-label{
+    font-weight:700;
+    font-style:normal
 }
-.definition > .thm-sublabel{
-	font-style: normal;
+.proof{
+    margin-bottom:10px;
 }
-
 .proposition{
-	border: dashed 1px;
-	padding: 1%;
-	font-style: italic;
+    border:1px dashed;
+    font-style:italic
 }
-
-.proposition > .thm-label {
-	font-weight:bold;
-	font-style: normal;
+.proposition>.thm-label,.proposition>.thm-sublabel,.lemma>.thm-label,.lemma>.thm-sublabel,.theorem>.thm-label,.theorem>.thm-sublabel{
+    font-style:normal
 }
-.proposition > .thm-sublabel{
-	font-style: normal;
-}
-
 .lemma{
-	border: solid 1px;
-	padding: 1%;
-	font-style: italic;
+    border:1px solid;
+    font-style:italic
 }
-
-.lemma > .thm-label {
-	font-weight:bold;
-	font-style: normal;
-}
-.lemma > .thm-sublabel{
-	font-style: normal;
-}
-
 .theorem{
-	border: double 5px;
-	padding: 1%;
-	font-style: italic;
+    border:5px double;
+    font-style:italic
 }
-
-.theorem > .thm-label {
-	font-weight:bold;
-	font-style: normal;
-}
-.theorem > .thm-sublabel{
-	font-style: normal;
-}
-
 .conjecture{
-	border: groove 5px;
-	padding: 1%;
+    border:5px groove
 }
-
-.conjecture > .thm-label {
-	font-weight:bold;
-}
-
 .corollary{
-	border: dotted 1px;
-	padding: 1%;
-	font-style: italic;
+    border:1px dotted;
+    font-style:italic
 }
-
-.corollary > .thm-label {
-	font-weight:bold;
-	font-style: normal;
+.corollary>.thm-label,.corollary>.thm-sublabel{
+    font-style:normal
 }
-.corollary > .thm-sublabel{
-	font-style: normal;
+.proof>.thm-label,.remark>.thm-label{
+    font-style:italic
 }
-
 .remark{
-	border: inset 5px;
-	padding: 1%;
+    border:5px inset
 }
-
-.remark > .thm-label {
-	font-style: italic;
-}
-
 .warning{
-	border: outset 5px red;
-	padding: 1%;
+    border:5px outset red
 }
-
-.warning > .thm-label {
-	font-weight: bold;
-}
-
-.proof > .thm-label {
-	font-style: italic;
-}
-
-/* Figure Environments */
-
 .figure{
-	font-size:10pt;
-	text-align:center;
+    font-size:10pt;
+    text-align:center
 }
-.figure > .instagram-media{
-	border: none !important;
-	display: inline-flex!important;
+.figure>.instagram-media{
+    border:none!important;
+    display:inline-flex!important
 }
-.figure > .fig-desc {
-	display: inline-block;
-	margin-bottom: 2%;
-	width: 60%;
-	text-align:left;
+.figure>.fig-desc{
+    display:inline-block;
+    margin-bottom:2%;
+    width:60%;
+    text-align:left
 }
-.figure > .fig-desc > .fig-label {
-	font-variant: small-caps;
+.figure>.fig-label{
+    font-variant:small-caps
 }
-
-/* Enumerate Environments */
-
-.ecomponents > li > .ecomponents {
-	list-style-type: lower-alpha;
+.enumerate>li>.enumerate>li>.enumerate{
+    list-style-type:lower-roman
 }
-.ecomponents > li > .ecomponents > li > .ecomponents {
-	list-style-type: lower-roman;
+.enumerate> .labeled{
+    list-style-type:none;
+	position: relative;
+	right: 16px;
 }
-.scomponents > li > .scomponents {
-	list-style-type: lower-alpha;
-}
-.scomponents > li > .scomponents > li > .scomponents {
-	list-style-type: lower-roman;
-}
-.enumerate > li > .scomponents {
-	list-style-type: lower-alpha;
-}
-.enumerate > li > .enumerate > li > .enumerate {
-	list-style-type: lower-roman;
+.bib-label{
+    text-align:center;
+    font-weight:600
 }

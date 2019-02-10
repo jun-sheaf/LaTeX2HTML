@@ -1,3 +1,4 @@
+<header>
 <script type="text/x-mathjax-config">
    MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -64,25 +65,23 @@
 </script>
 <link rel="stylesheet" href="css/footnotes.css">
 <link rel="stylesheet" href="css/environments.css">
+
+</header>
 <body>
-<p class="preliminary"><span class="thm-label">Preliminary.</span>
-    Some custom environment
-</p>
-<p class="exercise"><span class="thm-label">Exercise.</span>
-    <ol class="ecomponents">
-        <li> This is
-        <li> A custom
-        <ol class="ecomponents">
-            <li> enumerate
-            <li> environment
-            <ol class="enumerate">
-                <li> with a
-                <li class="labeled">label.
-            </ol>
+<div class="preliminary"><span class="thm-label">Preliminary.</span>
+    Custom environment.
+</div>
+<div class="exercise"><span class="thm-label">Exercise.</span>
+    This exercise environment is also custom.
+    <ol class="enumerate">
+        <li> This is a enumerate environment.
+        <li>
+        <ol class="enumerate">
+            <li> Nested, and changed using the options provided by enumitem.
+            <li class="labeled">Some label.  Item with a label.
         </ol>
     </ol>
-    This exercise environment is also custom.
-</p>
+</div>
 Of course math works:
 \begin{equation}\label{eq:1}
     \cdots\to \pi_{n}(\S^{n+k})\to \pi_n(\S^n)\to \pi_{n-1}(\S^k)\to\pi_{n-1}(\S^{n+k})\to\cdots
@@ -95,39 +94,50 @@ and inline \(n=4\) math delimiters work. Including \(test\) and
 \[\pi_1(S)\]
 
 Here is a typical theorem environment with a label:
-<p class="proposition"><span class="thm-label">Proposition 1 </span><span class="thm-sublabel">(Hopf Construction)</span>.
+<div class="proposition"><span class="thm-label">Proposition 1 </span><span class="thm-sublabel">(Hopf Construction)</span>. 
 Suppose \(\mu:X\times X\to X\) is a map such that \(\mu(x,\bullet):X\to X\) and \(\mu(\bullet,x):X\to X\) are homeomorphisms for each \(x\in X\). Then the map
 \[
     h_{\mu}:X*X\to \Sigma X\mbox{ defined by }(x,y,t)\mapsto (\mu(x,y),t)
 \]
 is a fiber bundle with fiber \(X\).
-</p>
-<p class="proof"><span class="thm-label">Proof.</span>
-    See \cite[Proposition VII.8.8]{Bredon1993}; we make some remarks. The open cones \(C_0\) and \(C_1\) defined are the preimages of \((0,1]\) and \([0,1)\) of the map \(\Sigma X\to I\) given by projecting the smashing parameter. The map \(L_x^{-1}(y)\) can be denoted more simply as \(x^{-1}y\) and similarly \(yx^{-1}\) for \(R_x^{-1}(y)\). The trivialization shown is for \(C_1\). \(C_2\) admits a similar trivialization with \(yx^{-1}\).
-</p>
+</div> 
+<div class="proof"><span class="thm-label">Proof.</span>
+    Omitted.
+</div>
 
-Here is one without a label:<a href="#fn:1" id="fnref:1"><sup>1</sup></a>
-<p class="proposition"><span class="thm-label">Proposition 2.</span>
+Here is one without a label (and a reference label):<a href="#fn:1" id="fnref:1"><sup>1</sup></a>
+<div class="proposition"><span class="thm-label">Proposition 2.</span> <a id="prop:1"></a>
 Suppose \(\mu:X\times X\to X\) is a map such that \(\mu(x,\bullet):X\to X\) and \(\mu(\bullet,x):X\to X\) are homeomorphisms for each \(x\in X\). Then the map
 \[
     h_{\mu}:X*X\to \Sigma X\mbox{ defined by }(x,y,t)\mapsto (\mu(x,y),t)
 \]
 is a fiber bundle with fiber \(X\).
-</p>
-<p class="proof"><span class="thm-label">Proof.</span>
-    See \cite[Proposition VII.8.8]{Bredon1993}; we make some remarks. The open cones \(C_0\) and \(C_1\) defined are the preimages of \((0,1]\) and \([0,1)\) of the map \(\Sigma X\to I\) given by projecting the smashing parameter. The map \(L_x^{-1}(y)\) can be denoted more simply as \(x^{-1}y\) and similarly \(yx^{-1}\) for \(R_x^{-1}(y)\). The trivialization shown is for \(C_1\). \(C_2\) admits a similar trivialization with \(yx^{-1}\).
-</p>
+</div> 
+<div class="proof"><span class="thm-label">Proof.</span>
+    Omitted
+</div>
 
-Got a figure? Well no problem! This handles figures (rigidly of course) [you can't change your figure position in your original TeX file without modifying the HTML output, but I will add this]
+We can handle labeled citations such as Proposition VII.8.8[<a href="#Bredon1993">1</a>] and unlabeled such as <a href="#Bredon1993">1</a>
+
+The following is a figure environment defined like the other environments in this document, but defined drastically differently in css.
 <div class="figure id="fig1" style="text-align: center">
-    \centering
-    [embed]<body>[/embed]Figure 1.
-    <span class="fig-caption">If \(X=I\), then we have a box \(I\times I\times I\) with \(A\) being some interval. The flayling nature of \(A\) represents the fact the homotopy does not necessarily fix \(A\). Going from top to bottom is the homotopy of a homotopy with \(\tilde h(x,t)\) along the frame.</span><a id="fig:2"></a>
+    <img src=""><br><span class="fig-label">Figure 1.</span> 
+    <span class="fig-caption">If \(X=I\), then we have a box \(I\times I\times I\) with \(A\) being some interval. The flailing nature of \(A\) represents the fact the homotopy does not necessarily fix \(A\). Going from top to bottom is the homotopy of a homotopy with \(\tilde h(x,t)\) along the frame.</span><a id="fig:2"></a>
 </div></div>
+Note the captions and label are parsed correctly. The graphic is probably empty unless you include a link.
 
-References (e.g. Figure <a href="#fig:2">2</a>) of course work.
+This line is a test that the program can handle sequences and nestings of macros: <em>face<b>map</b></em> of a <em>test<em>test</em></em><a href="#fn:2" id="fnref:2"><sup>2</sup></a> <b>space</b><a href="#fn:3" id="fnref:3"><sup>3</sup></a>. Proposition VII.8.8[<a href="#Bredon1993">1</a>] Proposition VII.8.8[<a href="#Bredon1993">1</a>]
 
+We can reference our Figure <a href="#fig:2">2</a> and Proposition <a href="#prop:1">1</a>.
+
+<div class = "bib-label">References</div><ol class="bibliography">
+<li id='Bredon1993'>Bredon, Glen E. <i>Topology and Geometry.</i> Springer-Verlag New York, New York, <a style='font: monospace' href='https://doi.org/10.1007/978-1-4757-6848-0'>10.1007/978-1-4757-6848-0</a>, 1993.
+</ol>
+<hr>
 <ol class="footnotes">
 <li id="fn:1">this is a test footnote</li>
+<li id="fn:2">BS</li>
+<li id="fn:3">More BS</li>
 </ol>
-</body>
+</body> 
+

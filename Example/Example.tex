@@ -1,25 +1,68 @@
 \documentclass{amsart}
 
-% Preamble would usually go here
+%%%%%%% Packages %%%%%%%
 
+% Latex3 Fix
+\RequirePackage{xpatch}
+
+% AMS Packages
+\RequirePackage{amsmath,amsfonts,amssymb,amsthm}
+
+% Miscellaneous
+\RequirePackage{enumitem, graphicx, geometry}
+
+\RequirePackage[hidelinks]{hyperref}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Commands
+\def\S{\mathbb{S}}
+
+% Theorems
+\theoremstyle{plain}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+
+% Exercise Environment
+\newcounter{excount}
+\stepcounter{excount}
+
+\NewDocumentCommand
+{\exercise}
+{ o d() }
+{\par\noindent\phantomsection{\bf Exercise %
+    \IfNoValueTF{#1}%
+    {\arabic{excount}\addcontentsline{toc}{chapter}{Exercise \arabic{excount}}\stepcounter{excount}}%
+    {#1%
+      \IfNoValueTF{#2}%
+      {\addcontentsline{toc}{chapter}{Exercise #1}}
+      { (#2)\addcontentsline{toc}{chapter}{Exercise #1 (#2)}}%
+    }}.}%
+
+\def\preliminary{\par\noindent\phantomsection{\bf Preliminaries. }\addcontentsline{toc}{chapter}{Preliminaries}}
+
+\def\endexercise{\par\medskip}
+\def\endpreliminary{\par\medskip}
+
+% Patching document to include excess macros
+\xapptocmd{\document}{\maketitle\tableofcontents}{}{}
+\xpretocmd{\enddocument}{\bibliographystyle{plain}\addtocontents{toc}{\vspace{\normalbaselineskip}}\bibliography{References}}{}{}
+
+\title{Example TeX File}
 \begin{document}
 \begin{preliminary}
-    Some custom environment
+    Custom environment.
 \end{preliminary}
 \begin{exercise}
-    \begin{ecomponents}
-        \item This is
-        \item A custom
-        \begin{ecomponents}
-            \item enumerate
-            \item environment
-            \begin{enumerate}
-                \item with a
-                \item[label]
-            \end{enumerate}
-        \end{ecomponents}
-    \end{ecomponents}
     This exercise environment is also custom.
+    \begin{enumerate}
+        \item This is a enumerate environment.
+        \item
+        \begin{enumerate}[font=\it]
+            \item Nested, and changed using the options provided by enumitem.
+            \item[Some label] Item with a label.
+        \end{enumerate}
+    \end{enumerate}
 \end{exercise}
 Of course math works:
 \begin{equation}\label{eq:1}
@@ -41,11 +84,11 @@ $$
 is a fiber bundle with fiber $X$.
 \end{proposition}
 \begin{proof}
-    See \cite[Proposition VII.8.8]{Bredon1993}; we make some remarks. The open cones $C_0$ and $C_1$ defined are the preimages of $(0,1]$ and $[0,1)$ of the map $\Sigma X\to I$ given by projecting the smashing parameter. The map $L_x^{-1}(y)$ can be denoted more simply as $x^{-1}y$ and similarly $yx^{-1}$ for $R_x^{-1}(y)$. The trivialization shown is for $C_1$. $C_2$ admits a similar trivialization with $yx^{-1}$.
+    Omitted.
 \end{proof}
 
-Here is one without a label:\footnote{this is a test footnote}
-\begin{proposition}
+Here is one without a label (and a reference label):\footnote{this is a test footnote}
+\begin{proposition}\label{prop:1}
 Suppose $\mu:X\times X\to X$ is a map such that $\mu(x,\bullet):X\to X$ and $\mu(\bullet,x):X\to X$ are homeomorphisms for each $x\in X$. Then the map
 $$
     h_{\mu}:X*X\to \Sigma X\mbox{ defined by }(x,y,t)\mapsto (\mu(x,y),t)
@@ -53,15 +96,19 @@ $$
 is a fiber bundle with fiber $X$.
 \end{proposition}
 \begin{proof}
-    See \cite[Proposition VII.8.8]{Bredon1993}; we make some remarks. The open cones $C_0$ and $C_1$ defined are the preimages of $(0,1]$ and $[0,1)$ of the map $\Sigma X\to I$ given by projecting the smashing parameter. The map $L_x^{-1}(y)$ can be denoted more simply as $x^{-1}y$ and similarly $yx^{-1}$ for $R_x^{-1}(y)$. The trivialization shown is for $C_1$. $C_2$ admits a similar trivialization with $yx^{-1}$.
+    Omitted
 \end{proof}
 
-Got a figure? Well no problem! This handles figures (rigidly of course) [you can't change your figure position in your original TeX file without modifying the HTML output, but I will add this]
-\begin{figure}
-    \centering
-    \includegraphics[width=4in]{HomotopyOfHomotopy.jpg}
-    \caption{If $X=I$, then we have a box $I\times I\times I$ with $A$ being some interval. The flayling nature of $A$ represents the fact the homotopy does not necessarily fix $A$. Going from top to bottom is the homotopy of a homotopy with $\tilde h(x,t)$ along the frame.}\label{fig:2}
-\end{figure}
+We can handle labeled citations such as \cite[Proposition VII.8.8]{Bredon1993} and unlabeled such as \cite{Bredon1993}
 
-References (e.g. Figure \ref{fig:2}) of course work.
+The following is a figure environment defined like the other environments in this document, but defined drastically differently in css.
+\begin{figure}
+    \includegraphics[width=4in]{image.jpg}
+    \caption{If $X=I$, then we have a box $I\times I\times I$ with $A$ being some interval. The flailing nature of $A$ represents the fact the homotopy does not necessarily fix $A$. Going from top to bottom is the homotopy of a homotopy with $\tilde h(x,t)$ along the frame.}\label{fig:2}
+\end{figure}
+Note the captions and label are parsed correctly. The graphic is probably empty unless you include a link.
+
+This line is a test that the program can handle sequences and nestings of macros: \textit{face\textbf{map}} of a \textit{test\textit{test}}\footnote{BS} \textbf{space}\footnote{More BS}. \cite[Proposition VII.8.8]{Bredon1993} \cite[Proposition VII.8.8]{Bredon1993}
+
+We can reference our Figure \ref{fig:2} and Proposition \ref{prop:1}.
 \end{document} 
