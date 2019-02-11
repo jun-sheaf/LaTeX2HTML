@@ -69,6 +69,10 @@ All macros and environments (except the ones used by MathJax) used in your docum
 
 There are a lot of methods for removing unwanted macros in this program. Not so obvious is the facts we can remove parameters in the HTML using some clever adjustments. For example, using the `enumitems` package allows for adjusting enumerate-type environments in the form `\begin{enumerate}[options]`. The `[options]` can be removed by not referencing it in replacement text. See the `customize.ini` file for some inspiration.
 
+## Debugging
+
+Changing the extension of the GUI script to `py` will allow the command line to appear while you run the program. If you find something, please do not hesitate to file an issue. Of course, please make sure your LaTeX code compiles before saying the application breaks. Also make sure you use different quotations in the customization file.
+
 # Contact
 
 You can contact me through my site [The Bracket](https://www.jeongjh.com/about-contact/). I am a starving student, so tips are incredibly welcomed: 
