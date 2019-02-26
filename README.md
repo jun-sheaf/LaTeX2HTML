@@ -1,4 +1,4 @@
-# RegEx for LaTeX tHTML
+# RegEx for LaTeX to HTML
 A Customizable Python Program for Translating LaTeX to HTML
 
 ## Introduction
