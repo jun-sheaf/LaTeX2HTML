@@ -1,4 +1,4 @@
-# LaTeX2HTML
+# RegEx4TeX2HTML
 A Customizable Python Program for Translating LaTeX to HTML
 
 ## Introduction
