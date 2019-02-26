@@ -38,7 +38,7 @@ The header in the example is similar to the one I use. The scripts and css are r
 ### Preparing Your LaTeX Code
 For footnotes:
 * Place footnotes (`\footnote{sometext}`) where you would like the footnote marker to appear.
-* Do **not** place your footnote in math delimiters. Use a footnote marker (`\footnotemarker`) and place your footnote text    (`\footnotetext{texthere}`).
+* Do **not** place your footnote in math delimiters. Use a footnote marker (`\footnotemarker`) and place your footnote text    (`\footnotetext{texthere}`) where you would like them to appear in HTML.
 
 For environments:
 * All environments (except the ones parsed by MathJax such as `equation`) must be of the form
