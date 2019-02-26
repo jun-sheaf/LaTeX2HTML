@@ -1,4 +1,4 @@
-# RegEx4TeX2HTML
+# RegEx for LaTeX 2 HTML
 A Customizable Python Program for Translating LaTeX to HTML
 
 ## Introduction
@@ -82,6 +82,4 @@ Paypal: [PayPal.me/jeongjh](https://www.paypal.me/jeongjh)
 Crypto:
 ```
 BTC: 19AKGxHW19Jx5PtPA55mT4jgByV6ZFmLdL
-ETH: 0x5b4e8dde8d7aa983e5fb4f3a58a4cabadb66a6af
-LTC: LXcyKsHqLiYbEcgjKCTKUTwh52WfWgfqoX
-```
+ETH: 0x5b4e8dde8d7aa983e5fb4f3a58a4cabadb
