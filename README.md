@@ -72,14 +72,3 @@ There are a lot of methods for removing unwanted macros in this program. Not so 
 ## Debugging
 
 Changing the extension of the GUI script to `py` will allow the command line to appear while you run the program. If you find something, please do not hesitate to file an issue. Of course, please make sure your LaTeX code compiles before saying the application breaks. Also make sure you use different quotations in the customization file.
-
-# Contact
-
-You can contact me through my site [The Bracket](https://www.jeongjh.com/about-contact/). I am a starving student, so tips are incredibly welcomed: 
-
-Paypal: [PayPal.me/jeongjh](https://www.paypal.me/jeongjh)
-
-Crypto:
-```
-BTC: 19AKGxHW19Jx5PtPA55mT4jgByV6ZFmLdL
-ETH: 0x5b4e8dde8d7aa983e5fb4f3a58a4cabadb
